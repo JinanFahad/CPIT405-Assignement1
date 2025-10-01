@@ -1,4 +1,3 @@
-
 :root{
   --bg:#0f172a;
   --ink:#e5e7eb;
@@ -17,6 +16,7 @@
   --glass-border:#ffffff1a;
 }
 
+/*  Base  */
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -34,7 +34,7 @@ a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 img{max-width:100%;display:block}
 
-/* Header / Nav  */
+/*  Header */
 header{
   position:sticky; top:0; z-index:50;
   backdrop-filter:blur(8px);
@@ -56,9 +56,27 @@ header{
 }
 .chip:hover{background:var(--accent); color:#0b1020; border-color:var(--accent); transform:translateY(-2px)}
 
-/*  Desktop defaults */
-.hamburger{display:none;}
-.top-links{display:flex;}
+/* Hamburger */
+.hamburger{
+  position:relative; display:none;
+  align-items:center; justify-content:center;
+  width:38px; height:38px; border:1px solid var(--border); border-radius:10px;
+  background:#0b1324; cursor:pointer;
+  font-size:0; line-height:0;
+  transition:background-color .25s ease, border-color .25s ease, transform .2s ease; z-index:300;
+}
+.hamburger span{
+  position:absolute; left:50%; width:18px; height:2px; background:var(--ink); border-radius:2px;
+  transform:translateX(-50%); transition:transform .25s ease, opacity .2s ease;
+}
+.hamburger span:nth-child(1){top:12px}
+.hamburger span:nth-child(2){top:18px}
+.hamburger span:nth-child(3){top:24px}
+.hamburger.is-active{background:#0e1730}
+.hamburger.is-active span:nth-child(1){transform:translateX(-50%) translateY(6px) rotate(45deg)}
+.hamburger.is-active span:nth-child(2){opacity:0}
+.hamburger.is-active span:nth-child(3){transform:translateX(-50%) translateY(-6px) rotate(-45deg)}
+.nav{position:relative; overflow:visible}
 
 /*  Layout  */
 .page{
@@ -83,9 +101,11 @@ header{
 .avatar{
   width:160px; height:160px; margin:0 auto 14px; border-radius:50%; overflow:hidden;
   border:4px solid #0d1b2a; box-shadow:0 6px 18px rgba(0,0,0,.35);
-  display:grid; place-items:center;
+  display:grid; place-items:center; 
 }
-.avatar img{width:100%; height:100%; object-fit:cover; object-position:center}
+.avatar img{
+  width:100%; height:100%; object-fit:cover; object-position:center;
+}
 .name{margin:10px 0 2px; font-size:22px; font-weight:800}
 .role{margin:0 0 12px; color:var(--muted)}
 .menu{margin:18px 0 0; padding:0; list-style:none; display:grid; gap:6px}
@@ -131,7 +151,7 @@ button:hover{background:var(--accent); color:#0b1020; border-color:var(--accent)
 .radio{display:flex; gap:14px; align-items:center; flex-wrap:wrap}
 footer{color:#9aa4b2; text-align:center; opacity:.8; margin:26px 0 4px}
 
-/*  Portfolio Sections  */
+/*  Portfolio sections  */
 .folio-wrap{width:92%; max-width:var(--maxw); margin:28px auto}
 .folio-section{padding:22px; margin-bottom:22px}
 .split{display:grid; gap:22px; align-items:center; grid-template-columns:1.2fr .8fr}
@@ -144,8 +164,7 @@ footer{color:#9aa4b2; text-align:center; opacity:.8; margin:26px 0 4px}
 .tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:6px}
 .tag{font-size:12px; padding:6px 10px; border:1px solid var(--border); border-radius:999px; color:var(--muted)}
 .folio-section .media img.ebram{width:180px; height:auto; margin-inline:auto; display:block}
-.folio-section .media img.soln,
-.folio-section .media img.nexcore{width:360px; height:auto; margin-inline:auto; display:block}
+.folio-section .media img.soln,.folio-section .media img.nexcore{width:360px; height:auto; margin-inline:auto; display:block}
 
 /* Posters */
 .poster-grid{display:flex; gap:16px; justify-content:center; align-items:flex-start; flex-wrap:nowrap; overflow-x:auto; padding-bottom:10px}
@@ -177,37 +196,18 @@ footer{color:#9aa4b2; text-align:center; opacity:.8; margin:26px 0 4px}
 .table-wrapper .table thead th:first-child{border-top-left-radius:12px}
 .table-wrapper .table thead th:last-child{border-top-right-radius:12px}
 
-/*  Hamburger Button  */
-.hamburger{
-  position:relative; display:none; 
-  align-items:center; justify-content:center;
-  width:38px; height:38px; border:1px solid var(--border); border-radius:10px;
-  background:#0b1324; cursor:pointer;
-  font-size:0; line-height:0;
-  transition:background-color .25s ease, border-color .25s ease, transform .2s ease; z-index:300;
-}
-.hamburger span{
-  position:absolute; left:50%; width:18px; height:2px; background:var(--ink); border-radius:2px;
-  transform:translateX(-50%); transition:transform .25s ease, opacity .2s ease;
-}
-.hamburger span:nth-child(1){top:12px}
-.hamburger span:nth-child(2){top:18px}
-.hamburger span:nth-child(3){top:24px}
-.hamburger.is-active{background:#0e1730}
-.hamburger.is-active span:nth-child(1){transform:translateX(-50%) translateY(6px) rotate(45deg)}
-.hamburger.is-active span:nth-child(2){opacity:0}
-.hamburger.is-active span:nth-child(3){transform:translateX(-50%) translateY(-6px) rotate(-45deg)}
 
-.nav{position:relative; overflow:visible}
 
-/*  Mobile/Tablet  */
+/* Tablet */
 @media (max-width:980px){
   :root{ --sidebar:260px; }
   .split,.split.rev{grid-template-columns:1fr}
 }
+
+/* Mobile & small tablets */
 @media (max-width:780px){
-  .hamburger{display:inline-flex}
-  .top-links{display:none}
+  .hamburger{display:inline-flex !important;}
+  .top-links{display:none !important;}
 
   .top-links.is-open{
     display:flex; flex-direction:column; gap:10px;
@@ -218,18 +218,41 @@ footer{color:#9aa4b2; text-align:center; opacity:.8; margin:26px 0 4px}
     backdrop-filter:blur(12px) saturate(125%); -webkit-backdrop-filter:blur(12px) saturate(125%);
   }
   .top-links.is-open .chip{width:100%; text-align:left}
-  .brand-name{font-size:22px}
-}
-@media (max-width:640px){
-  :root{ --sidebar:220px; }
+
+  .page{ grid-template-columns: 1fr !important; }
+
+  .aside{
+    position: static !important;
+    padding: 16px !important;
+    text-align: center !important;
+    display: grid !important;
+    justify-items: center !important;
+    row-gap: 10px !important;
+  }
+
+  .avatar{
+    width: 120px !important;
+    height: 120px !important;
+    margin: 0 auto 12px !important;
+    display: grid !important;
+    place-items: center !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+  .avatar img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+  }
+
   body{font-size:13px}
   h1{font-size:20px}
   h2{font-size:18px}
   .brand-name{font-size:18px}
   .chip{padding:6px 10px; font-size:12px}
-  .aside{padding:14px}
   .main{padding:16px}
-  .avatar{width:120px; height:120px}
   .icon{width:28px; height:28px}
   .icon i{font-size:16px}
   .aside .row a,.aside .row{overflow-wrap:anywhere; word-break:break-word; line-height:1.5}
@@ -242,114 +265,8 @@ footer{color:#9aa4b2; text-align:center; opacity:.8; margin:26px 0 4px}
   .table thead th,.table tbody td{padding:10px 10px; font-size:13px}
 }
 
-/* Force desktop behavior */
-@media (min-width: 781px){
-  .hamburger{ display: none !important; }
-  .top-links{ display: flex !important; }
-}
-
-/* Show burger only on mobile/tablet */
-@media (max-width: 780px){
-  .hamburger{ display: inline-flex !important; }
-  .top-links{ display: none !important; }
-}
-
-/* ===== Mobile layout: stack columns ===== */
-@media (max-width: 780px){
-  /* من عمودين إلى عمود واحد */
-  .page{
-    grid-template-columns: 1fr !important;
-  }
-
-  /* السايدبار يصير بلوك عادي فوق المحتوى */
-  .aside{
-    position: static !important;
-    padding: 16px !important;
-    text-align: center !important;
-
-    /* نستخدم Grid لتوسيط كل العناصر داخله */
-    display: grid;
-    justify-items: center;
-    row-gap: 10px;
-  }
-
-  /* الصورة أصغر ومتمركزة 100% */
-  .avatar{
-    width: 120px !important;
-    height: 120px !important;
-    margin: 0 auto 12px !important;
-    display: grid !important;
-    place-items: center !important;
-  }
-  .avatar img{
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center !important;
-    display: block !important;
-  }
-
-  /* توسيط نصوص الاسم/الدور */
-  .name{ font-size: 20px; text-align: center; }
-  .role{ text-align: center; }
-
-  /* قائمة الروابط داخل السايدبار تكون في المنتصف */
-  .menu{
-    width: 100%;
-    display: grid;
-    justify-items: center;  /* توسيط العناصر داخل الـul */
-    gap: 8px;
-  }
-  .menu a{
-    text-align: center;
-    width: 100%;
-    max-width: 260px;       /* يمنعها تتمدد بعرض كبير */
-  }
-
-  /* سوشيال أيقونز في المنتصف دائماً */
-  .social{
-    justify-content: center !important;
-  }
-}
-@media (max-width: 980px) and (min-width: 781px){
-  .page{ grid-template-columns: 1fr 1fr; } /* 50/50 بدل 30/70 */
-  .aside{ top: 70px; }
-}
-/* ===== Fix avatar centering & size on mobile ===== */
-@media (max-width: 780px){
-
-  /* خلي السايدبار عمودي ومتمركز */
-  .aside{
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;   /* يوسّط كل العناصر أفقياً */
-    justify-content: flex-start !important;
-    text-align: center !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
-
-  /* حاوية الصورة: حجم ثابت وتمركز تام */
-  .avatar{
-    width: 120px !important;
-    height: 120px !important;
-    padding: 0 !important;
-    margin: 0 auto 12px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    border-radius: 50% !important;
-    overflow: hidden !important;
-  }
-
-  /* الصورة نفسها: تملأ الدائرة وتتمركز */
-  .avatar img{
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center !important;
-    margin: 0 !important;
-    transform: none !important;
-  }
+/* Desktop force */
+@media (min-width:781px){
+  .hamburger{display:none !important;}
+  .top-links{display:flex !important;}
 }
