@@ -1,0 +1,247 @@
+/* ================== Root & Base ================== */
+:root{
+  --bg:#0f172a;
+  --card:#111827;
+  --ink:#e5e7eb;
+  --muted:#cbd5e1;
+  --accent:#22d3ee;
+  --border:#ffffff22;
+  --radius:16px;
+  --shadow:0 10px 30px rgba(0,0,0,.28);
+  --maxw:1200px;
+  --sidebar:320px;
+
+  --ink-soft:#d9e3f0;
+  --blue-1:#081424;
+  --blue-2:#0e203a;
+
+  /* Glass tokens */
+  --glass: rgba(255,255,255,.06);
+  --glass-strong: rgba(255,255,255,.10);
+  --glass-border: rgba(255,255,255,.20);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(1200px 700px at 10% -10%, #1e293b33, transparent),
+    linear-gradient(180deg, #0b1020cc, #0b1220cc),
+    url('images/BG.jpg') center / cover fixed no-repeat,
+    var(--bg);
+  line-height:1.6;
+}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+
+/* ================== Header ================== */
+header{
+  position:sticky; top:0; z-index:50;
+  border-bottom:1px solid var(--glass-border);
+  background: linear-gradient(180deg, rgba(15,23,42,.75), rgba(15,23,42,.55) 60%, transparent);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+}
+.nav{
+  width:92%; max-width:var(--maxw); margin-inline:auto; padding:12px 0;
+  display:flex; align-items:center; justify-content:space-between; overflow:visible; position:relative;
+}
+.brand{display:flex; gap:12px; align-items:baseline; font-weight:800; flex-wrap:nowrap}
+.brand small{opacity:.75}
+.brand-name{white-space:nowrap; font-weight:800; font-size:26px}
+.top-links{display:flex; gap:12px}
+.chip{
+  padding:10px 14px; border:1px solid var(--glass-border); border-radius:999px; color:var(--ink);
+  background:rgba(255,255,255,.04); backdrop-filter: blur(4px);
+}
+.chip:hover{background:var(--accent); color:#0b1020; border-color:var(--accent); text-decoration:none}
+
+/* ================== Layout ================== */
+.page{
+  width:92%; max-width:var(--maxw); margin-inline:auto; padding-block:28px;
+  display:grid; gap:28px; grid-template-columns:30% 70%;
+}
+
+/* ================== Aside (glass) ================== */
+.aside{
+  position:sticky; top:74px; align-self:start;
+  background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius);
+  box-shadow:var(--shadow); padding:24px;
+  backdrop-filter: blur(12px) saturate(125%); -webkit-backdrop-filter: blur(12px) saturate(125%);
+  text-align:center;
+}
+.avatar{
+  width:160px; height:160px; margin:0 auto 14px; border-radius:50%; overflow:hidden;
+  border:4px solid #0d1b2a; box-shadow:0 6px 18px rgba(0,0,0,.35);
+  display:grid; place-items:center;
+}
+.avatar img{width:100%; height:100%; object-fit:cover; object-position:center; border-radius:50%}
+.name{margin:10px 0 2px; font-size:22px; font-weight:800}
+.role{margin:0 0 12px; color:var(--muted)}
+.menu{margin:18px 0 0; padding:0; list-style:none; display:grid; gap:6px}
+.menu a{display:block; padding:8px 12px; border-radius:10px; color:#9ee6f5; transition:.25s}
+.menu a:hover{background:var(--accent); color:#0b1020}
+.contact-box{margin-top:18px; border-top:1px dashed var(--glass-border); padding-top:16px}
+.row{margin:4px 0}
+.social{display:flex; gap:10px; margin-top:10px; justify-content:center}
+.icon{
+  width:34px; height:34px; border-radius:8px; display:grid; place-items:center;
+  border:1px solid var(--glass-border); background:rgba(255,255,255,.04); backdrop-filter: blur(4px);
+}
+.icon i{font-size:18px; color:var(--ink)}
+.icon:hover{background:var(--accent); color:#0b1020; border-color:var(--accent); transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,.25)}
+
+/* ================== Main (glass) ================== */
+.main{
+  background:var(--glass); border:1px solid var(--glass-border); border-radius:var(--radius);
+  box-shadow:var(--shadow); padding:28px;
+  backdrop-filter: blur(12px) saturate(125%); -webkit-backdrop-filter: blur(12px) saturate(125%);
+  animation:fadeUp .5s ease both;
+}
+.section{padding-bottom:22px; margin-bottom:24px; border-bottom:1px dashed var(--glass-border); scroll-margin-top:90px}
+.section:last-child{border-bottom:none; margin-bottom:0; padding-bottom:0}
+h1,h2{margin:0 0 10px}
+h2{font-size:22px}
+ul{margin:6px 0 0 18px}
+
+/* ================== Forms ================== */
+.field{display:grid; gap:6px; margin-bottom:12px}
+input,textarea{
+  background:rgba(11,17,32,.55); border:1px solid rgba(255,255,255,.15); color:var(--ink);
+  border-radius:12px; padding:12px 14px; outline:none; backdrop-filter: blur(6px);
+}
+input:focus,textarea:focus{border-color:var(--accent); box-shadow:0 0 0 3px #22d3ee22}
+.actions{margin-top:10px}
+button{
+  cursor:pointer; padding:12px 18px; border-radius:999px;
+  border:1px solid #22d3ee44; background:#0b1324; color:var(--ink); transition:.25s;
+}
+button:hover{background:var(--accent); color:#0b1020; border-color:var(--accent); transform:translateY(-2px)}
+
+/* ================== Portfolio blocks (glass) ================== */
+.folio-wrap{width:92%; max-width:var(--maxw); margin:28px auto}
+.folio-section{
+  position:relative; background:var(--glass);
+  border:1px solid var(--glass-border); border-radius:18px; box-shadow:var(--shadow);
+  padding:22px; margin-bottom:22px; backdrop-filter: blur(12px) saturate(125%);
+  animation:fadeUp .5s ease both;
+}
+.split{display:grid; gap:22px; align-items:center; grid-template-columns:1.2fr .8fr}
+.split.rev{grid-template-columns:.8fr 1.2fr}
+.copy h2{margin:0 0 8px; font-size:24px}
+.copy p{margin:0 0 10px; color:var(--muted)}
+.copy .impression{color:var(--ink); font-style:italic}
+.media img{width:100%; height:auto; border-radius:16px; border:1px solid var(--glass-border)}
+
+.folio-section .media img.ebram{width:180px; margin-inline:auto}
+.folio-section .media img.soln,
+.folio-section .media img.nexcore{width:360px; margin-inline:auto}
+
+/* Posters & Shots */
+.poster-grid{
+  display:flex; gap:16px; justify-content:center; align-items:flex-start;
+  flex-wrap:nowrap; overflow-x:auto; padding-bottom:10px
+}
+.poster-grid img{
+  max-height:300px; width:auto; flex-shrink:0; object-fit:contain;
+  border-radius:10px; border:1px solid var(--glass-border); box-shadow:0 6px 16px rgba(0,0,0,.35)
+}
+.shot-grid{display:flex; gap:20px; justify-content:flex-start; align-items:flex-start; flex-wrap:wrap}
+.shot-grid img{max-width:48%; height:auto; border-radius:12px; border:1px solid var(--glass-border); box-shadow:0 6px 16px rgba(0,0,0,.35)}
+.shot-grid img.small-img{max-width:35%}
+
+/* ================== Tables (glass) ================== */
+.table-wrapper{
+  overflow:auto; border:1px solid var(--glass-border); border-radius:12px; background:var(--glass);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); animation:fadeUp .5s ease both;
+}
+.table{
+  width:100%; border-collapse:separate; border-spacing:0;
+  font-size:14.5px; color:var(--ink);
+}
+.table thead th{
+  position:sticky; top:0; z-index:1;
+  background:rgba(14,32,51,.7); color:var(--ink); text-align:left;
+  padding:12px 14px; border-bottom:1px solid var(--glass-border);
+  backdrop-filter: blur(8px);
+}
+.table tbody td{
+  padding:12px 14px; border-bottom:1px dashed #ffffff14; vertical-align:middle;
+}
+.table.striped tbody tr:nth-child(odd){ background:#0b152680 }
+.table.striped tbody tr:nth-child(even){ background:#0b112080 }
+.table.hoverable tbody tr:nth-child(odd):hover { background:#0d1e35 }
+.table.hoverable tbody tr:nth-child(even):hover{ background:#3a5075 }
+.table-wrapper .table thead th:first-child{border-top-left-radius:12px}
+.table-wrapper .table thead th:last-child{border-top-right-radius:12px}
+
+/* ================== Hamburger ================== */
+.hamburger{
+  position:relative; display:inline-flex; align-items:center; justify-content:center;
+  width:38px; height:38px; padding:0;
+  border:1px solid var(--glass-border); border-radius:10px;
+  background:#0b1324; cursor:pointer; font-size:0; line-height:0;
+  transition: background-color .25s ease, border-color .25s ease, transform .2s ease;
+  z-index:300;
+}
+.hamburger span{
+  position:absolute; left:50%; width:18px; height:2px; background:var(--ink); border-radius:2px;
+  transform:translateX(-50%); transition:transform .25s ease, opacity .2s ease;
+}
+.hamburger span:nth-child(1){ top:12px }
+.hamburger span:nth-child(2){ top:18px }
+.hamburger span:nth-child(3){ top:24px }
+.hamburger.is-active{ background:#0e1730 }
+.hamburger.is-active span:nth-child(1){ transform:translateX(-50%) translateY(6px) rotate(45deg) }
+.hamburger.is-active span:nth-child(2){ opacity:0 }
+.hamburger.is-active span:nth-child(3){ transform:translateX(-50%) translateY(-6px) rotate(-45deg) }
+
+/* Mobile dropdown */
+@media (max-width:780px){
+  .top-links{ display:none }
+  .hamburger{ display:inline-flex }
+  .top-links.is-open{
+    display:flex; flex-direction:column; gap:10px;
+    position:fixed; right:12px; top:64px; z-index:200; width:min(220px, 80vw);
+    background:var(--glass); border:1px solid var(--glass-border); border-radius:14px;
+    padding:12px; box-shadow:0 12px 24px rgba(0,0,0,.35); backdrop-filter: blur(12px);
+  }
+  .top-links.is-open .chip{ width:100%; text-align:left }
+  .brand-name{ font-size:22px }
+}
+
+/* ================== Animations & polish ================== */
+@keyframes fadeUp{ from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)} }
+.chip,.icon,button,.menu a,.aside,.main{transition:background-color .25s ease, border-color .25s ease, color .25s ease, box-shadow .3s ease, transform .25s ease}
+.icon:hover,button:hover,.chip:hover,.menu a:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,.25)}
+@media (prefers-reduced-motion:reduce){
+  .chip,.icon,button,.menu a,.aside,.main{transition:none!important}
+  .main,.folio-section,.table-wrapper{animation:none!important}
+}
+
+/* ================== Responsive ================== */
+@media (max-width:980px){
+  :root{ --sidebar:260px }
+  .split,.split.rev{grid-template-columns:1fr}
+  .shot-grid img{max-width:100%}
+  .shot-grid img.small-img{max-width:100%}
+  .poster-grid{flex-wrap:wrap; overflow-x:visible}
+}
+@media (max-width:640px){
+  :root{ --sidebar:220px }
+  body{ font-size:13px }
+  h1{ font-size:20px } h2{ font-size:18px }
+  .brand-name{ font-size:18px } .chip{ padding:6px 10px; font-size:12px }
+  .aside{ padding:14px } .main{ padding:16px }
+  .avatar{ width:120px; height:120px }
+  .icon{ width:28px; height:28px } .icon i{ font-size:16px }
+  .aside .row a, .aside .row{ overflow-wrap:anywhere; word-break:break-word; line-height:1.5 }
+  .media img{ border-radius:10px }
+  .shot-grid{ gap:12px } .poster-grid{ gap:12px } .poster-grid img{ max-height:180px }
+  .tag{ font-size:11px; padding:5px 8px }
+  .table thead th, .table tbody td{ padding:10px; font-size:13px }
+}

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV – Jinan Fahad</title>
+  <meta name="description" content="Personal CV of Jinan Fahad." />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="brand-name">Jinan Fahad</div>
+        <small>IT Student</small>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="top-links" id="top-links" aria-label="Top navigation">
+        <a class="chip" href="index.html">CV</a>
+        <a class="chip" href="portfolio.html">Portfolio</a>
+        <a class="chip" href="schedule.html">Schedule</a>
+        <a class="chip" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Page Content ===== -->
+  <div class="page">
+    <aside class="aside">
+  <div class="avatar">
+    <img src="../images/ma-logo.jpg" alt="Profile photo"/>
+  </div>
+  <div class="name">Jinan Fahad</div>
+  <div class="role">IT Student – King Abdulaziz University</div>
+
+  <ul class="menu" aria-label="Section menu">
+    <li><a href="#summary">Personal Summary</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#interests">Interests</a></li>
+  </ul>
+
+  <!-- Contact + Social -->
+  <div class="contact-box">
+    <h4>Contact</h4>
+    <div class="row">Email: <a href="mailto:jinanalmidfa@gmail.com">jinanalmidfa@gmail.com</a></div>
+    <div class="row">Phone: <a href="tel:+966508154905">+966 508154905</a></div>
+    <div class="social" style="margin-top:12px">
+      <a class="icon" href="https://github.com/JinanFahad" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a class="icon" href="https://www.linkedin.com/in/jinan-almidfa-b8b09228b" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a class="icon" href="https://x.com/itjinanlz" target="_blank" title="X"><i class="fab fa-x-twitter"></i></a>
+    </div>
+  </div>
+</aside>
+
+    <main class="main">
+      <section id="summary" class="section">
+        <h2>Personal Summary</h2>
+        <p>
+          An Information Technology (IT) student at King Abdulaziz University with a strong interest in
+          User Experience (UI/UX) and a focus on Software Engineering. Passionate about combining
+          technical expertise with creativity to design solutions that enhance user interaction and
+          improve digital experiences. Recognized for leadership, teamwork, and a proactive approach
+          to achieving goals.
+        </p>
+      </section>
+
+      <section id="experience" class="section">
+        <h2>Experience & Activities</h2>
+        <ul>
+          <li><strong>Marketing Lead – Data Science Club:</strong> Led marketing campaigns, developed communication strategies, and increased audience engagement.</li>
+          <li><strong>Projects Lead – IEEE Club:</strong> Directed student teams, managed technical projects, and coordinated innovative initiatives.</li>
+          <li><strong>Participant – Protothon (Prototyping Hackathon):</strong> Contributed to developing innovative prototypes and technical solutions.</li>
+          <li><strong>Member – Entrepreneurship Club:</strong> Photographer and video editor, capturing and producing content to highlight entrepreneurial activities.</li>
+          <li><strong>Active Member</strong> in multiple student clubs, exhibitions, and university events, gaining hands-on experience in leadership and collaboration.</li>
+        </ul>
+      </section>
+
+      <section id="skills" class="section">
+        <h2>Skills</h2>
+        <ul>
+          <li>UI/UX Design and Prototyping</li>
+          <li>Software Engineering and System Development</li>
+          <li>Team Leadership and Project Management</li>
+          <li>Digital Marketing & Content Creation</li>
+          <li>Photography and Video Editing</li>
+        </ul>
+      </section>
+
+      <section id="interests" class="section">
+        <h2>Interests</h2>
+        <p>
+          Sports enthusiast with a passion for Paddle, Weightlifting, Football, Horseback Riding, and
+          other physical activities that promote energy, discipline, and resilience.
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    © <span id="year"></span> Jinan Fahad – All Rights Reserved
+  </footer>
+
+  <!-- ===== Scripts ===== -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const btn  = document.getElementById('hamburger');
+      const menu = document.getElementById('top-links');
+
+      if (!btn || !menu) return;
+
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const open = menu.classList.toggle('is-open');
+        btn.classList.toggle('is-active', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      menu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          menu.classList.remove('is-open');
+          btn.classList.remove('is-active');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!menu.classList.contains('is-open')) return;
+        if (menu.contains(e.target) || btn.contains(e.target)) return;
+        menu.classList.remove('is-open');
+        btn.classList.remove('is-active');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          menu.classList.remove('is-open');
+          btn.classList.remove('is-active');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
