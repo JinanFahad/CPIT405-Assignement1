@@ -315,3 +315,41 @@ footer{color:#9aa4b2; text-align:center; opacity:.8; margin:26px 0 4px}
   .page{ grid-template-columns: 1fr 1fr; } /* 50/50 بدل 30/70 */
   .aside{ top: 70px; }
 }
+/* ===== Fix avatar centering & size on mobile ===== */
+@media (max-width: 780px){
+
+  /* خلي السايدبار عمودي ومتمركز */
+  .aside{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;   /* يوسّط كل العناصر أفقياً */
+    justify-content: flex-start !important;
+    text-align: center !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* حاوية الصورة: حجم ثابت وتمركز تام */
+  .avatar{
+    width: 120px !important;
+    height: 120px !important;
+    padding: 0 !important;
+    margin: 0 auto 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+
+  /* الصورة نفسها: تملأ الدائرة وتتمركز */
+  .avatar img{
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    margin: 0 !important;
+    transform: none !important;
+  }
+}
