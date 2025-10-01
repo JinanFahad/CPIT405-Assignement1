@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio – Jinan Fahad</title>
   <meta name="description" content="Selected projects by Jinan Fahad with notes and impressions." />
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+
   <!-- Header -->
   <header>
     <div class="nav">
@@ -35,11 +36,8 @@
 
   <!-- Two-column layout -->
   <div class="page">
-    <!-- Sidebar -->
     <aside class="aside">
-      <div class="avatar">
-        <img src="../images/ma-logo.jpg" alt="Profile photo"/>
-      </div>
+      <div class="avatar"><img src="../images/ma-logo.jpg" alt="Profile photo"/></div>
       <div class="name">Jinan Fahad</div>
       <div class="role">IT Student – King Abdulaziz University</div>
 
@@ -49,27 +47,26 @@
         <li><a href="#techhub">TechHub</a></li>
       </ul>
 
-      <div class="contact-box" id="contact">
+      <div class="contact-box" style="margin-top:16px">
         <h4>Contact</h4>
         <div class="row">Email: <a href="mailto:jinanalmidfa@gmail.com">jinanalmidfa@gmail.com</a></div>
         <div class="row">Phone: <a href="tel:+966508154905">+966 508154905</a></div>
         <div class="social">
           <a class="icon" href="https://github.com/JinanFahad" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-          <a class="icon" href="https://www.linkedin.com/in/jinan-almidfa-b8b09228b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a class="icon" href="https://x.com/itjinanlz?s=21&t=AAJY5JZ3_rS8ttRnjRwqnw" target="_blank" title="X"><i class="fab fa-x-twitter"></i></a>
+          <a class="icon" href="https://www.linkedin.com/in/jinan-almidfa-b8b09228b" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a class="icon" href="https://x.com/itjinanlz" target="_blank" title="X"><i class="fab fa-x-twitter"></i></a>
         </div>
       </div>
     </aside>
 
-    <!-- Main -->
     <main class="main">
       <h1 style="margin:0 0 18px">Portfolio</h1>
 
       <!-- Summer Training -->
       <section class="folio-section" id="summer-training">
-        <h2 class="row" style="margin-bottom:18px">Summer Training</h2>
+        <h2 class="hand" style="margin-bottom:18px">Summer Training</h2>
         <p style="margin-bottom:22px">
-          During my summer training, I had the opportunity to work on three key projects 
+          During my summer training, I had the opportunity to work on three key projects
           that helped me improve my skills in UI/UX, teamwork, and front-end development.
         </p>
 
@@ -77,7 +74,7 @@
         <div class="split" style="margin-bottom:28px">
           <div class="copy">
             <h3>Ebram — Smart Digital Contracting</h3>
-            <p>Smart digital contracting platform for organizations, with secure access and seamless management.  
+            <p>Smart digital contracting platform for organizations, with secure access and seamless management.
               My role included wireframes, flows, and refining UI screens.</p>
             <div class="tags">
               <span class="tag">UI/UX</span><span class="tag">Front-end</span>
@@ -95,7 +92,7 @@
           </div>
           <div class="copy">
             <h3>Soln — Financial Solutions</h3>
-            <p>Company website offering innovative financial services that boost efficiency and sustainability.  
+            <p>Company website offering innovative financial services that boost efficiency and sustainability.
               I worked on content hierarchy and accessibility improvements.</p>
             <div class="tags">
               <span class="tag">Responsive Web</span><span class="tag">Accessibility</span>
@@ -107,7 +104,7 @@
         <div class="split">
           <div class="copy">
             <h3>NexCore — Built to Lead</h3>
-            <p>Custom digital solutions platform built with passion.  
+            <p>Custom digital solutions platform built with passion.
               My contribution focused on dark-theme UI, CSS layout, and micro-interactions.</p>
             <div class="tags">
               <span class="tag">CSS</span><span class="tag">Dark UI</span>
@@ -119,9 +116,9 @@
         </div>
       </section>
 
-      <!-- Robocon x Fursah -->
+      <!-- Robocon × Fursah -->
       <section class="folio-section" id="robocon-fursah">
-        <h2 class="row" style="margin-bottom:18px">Robocon × Fursah — PathBot Camp</h2>
+        <h2 class="hand" style="margin-bottom:18px">Robocon × Fursah — PathBot Camp</h2>
         <p>
           This camp aimed to give participants a unique opportunity to explore the world of robotics
           through voice control technologies for interaction and management. Whether beginner or
@@ -141,7 +138,7 @@
 
       <!-- TechHub -->
       <section class="folio-section" id="techhub">
-        <h2 class="row" style="margin-bottom:18px">TechHub</h2>
+        <h2 class="hand" style="margin-bottom:18px">TechHub</h2>
         <p>
           I collaborated with the TechHub Clear media team and worked on several website UI screens.
           My role covered layout design, component styling, and preparing clean assets for handoff.
@@ -158,9 +155,8 @@
     </main>
   </div>
 
-  <footer>
-    © <span id="year"></span> Jinan Fahad – All Rights Reserved
-  </footer>
+  <footer>© <span id="year"></span> Jinan Fahad – All Rights Reserved</footer>
+
   <script>
     document.getElementById('year').textContent=new Date().getFullYear();
 
@@ -169,7 +165,7 @@
       const menu = document.getElementById('top-links');
       if (!btn || !menu) return;
 
-      btn.addEventListener('click', function (e) {
+      btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const open = menu.classList.toggle('is-open');
         btn.classList.toggle('is-active', open);
