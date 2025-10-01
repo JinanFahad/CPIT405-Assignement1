@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact – Jinan Fahad</title>
   <meta name="description" content="Contact Jinan Fahad – email, phone, social links, and contact form." />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- ===== Header ===== -->
+  <!-- Header -->
   <header>
     <div class="nav">
       <div class="brand">
@@ -18,12 +18,10 @@
         <small>IT Student</small>
       </div>
 
-      <!-- hamburger button  -->
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
 
-      <!-- Links -->
       <nav class="top-links" id="top-links" aria-label="Top navigation">
         <a class="chip" href="index.html">CV</a>
         <a class="chip" href="portfolio.html">Portfolio</a>
@@ -33,13 +31,10 @@
     </div>
   </header>
 
-  <!-- ===== Page ===== -->
   <div class="page">
     <!-- Sidebar -->
     <aside class="aside">
-      <div class="avatar">
-        <img src="../images/ma-logo.jpg" alt="Profile photo">
-      </div>
+      <div class="avatar"><img src="../images/ma-logo.jpg" alt="Profile photo"></div>
       <div class="name">Jinan Fahad</div>
       <div class="role">IT Student – King Abdulaziz University</div>
 
@@ -59,17 +54,15 @@
     <main class="main">
       <h2 style="margin-top:0">Contact</h2>
 
-      <!-- ===== Form  ===== -->
       <form
         action="https://webhook.site/36ff7ca6-4cc1-4016-a81f-36a767b36100"
         method="POST"
-        class="contact-form"
-        autocomplete="on"
-        target="_blank"
-      >
+        novalidate
+        onsubmit="/* HTML5 validation handles it */">
+
         <div class="field">
-          <label for="name">Name <span aria-hidden="true" style="opacity:.7">*</span></label>
-          <input id="name" name="name" placeholder="Your full name" required minlength="2">
+          <label for="name">Name <span aria-hidden="true" style="color:#22d3ee">*</span></label>
+          <input id="name" name="name" placeholder="Your full name" required>
         </div>
 
         <div class="field">
@@ -79,20 +72,16 @@
 
         <div class="field">
           <label for="msg">Message</label>
-          <textarea id="msg" name="message" rows="10" placeholder="Type your message..."></textarea>
+          <textarea id="msg" name="message" rows="10" placeholder="Type your message..." required></textarea>
         </div>
 
         <div class="field">
           <label>Message Type</label>
           <div class="radio">
-            <label><input type="radio" name="type" value="Inquiry" checked> Inquiry</label>
-            <label><input type="radio" name="type" value="Complaint"> Complaint</label>
+            <label><input type="radio" name="type" value="inquiry" checked> Inquiry</label>
+            <label><input type="radio" name="type" value="complaint"> Complaint</label>
           </div>
         </div>
-
-        <!-- webhook -->
-        <input type="hidden" name="page" value="contact.html">
-        <input type="hidden" name="timestamp" value="">
 
         <div class="actions">
           <button type="submit">Send</button>
@@ -101,18 +90,11 @@
     </main>
   </div>
 
-  <!-- ===== Footer ===== -->
-  <footer>
-    © <span id="year"></span> Jinan Fahad – All Rights Reserved
-  </footer>
+  <footer>© <span id="year"></span> Jinan Fahad – All Rights Reserved</footer>
 
-  <!-- ===== Scripts ===== -->
   <script>
-    // webhook
     document.getElementById('year').textContent = new Date().getFullYear();
-    document.querySelector('input[name="timestamp"]').value = new Date().toISOString();
 
-    // Menu
     document.addEventListener('DOMContentLoaded', function () {
       const btn  = document.getElementById('hamburger');
       const menu = document.getElementById('top-links');
